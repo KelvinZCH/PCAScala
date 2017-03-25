@@ -1,0 +1,11 @@
+<component name="libraryTable">
+  <library name="spark-mllib-local_2.11-2.1.0">
+    <CLASSES>
+      <root url="jar:///usr/soft/spark/jars/spark-mllib-local_2.11-2.1.0.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/spark-mllib_2.11-2.1.0.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/spark-network-common_2.11-2.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

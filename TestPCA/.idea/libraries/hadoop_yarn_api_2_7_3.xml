@@ -1,0 +1,29 @@
+<component name="libraryTable">
+  <library name="hadoop-yarn-api-2.7.3">
+    <CLASSES>
+      <root url="jar:///usr/soft/spark/jars/hadoop-yarn-api-2.7.3.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/hadoop-yarn-client-2.7.3.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/hadoop-common-2.7.3.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/hadoop-yarn-server-common-2.7.3.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/hadoop-yarn-common-2.7.3.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/hadoop-yarn-server-web-proxy-2.7.3.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/py4j-0.10.4.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/scala-compiler-2.11.8.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/scala-library-2.11.8.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/scala-parser-combinators_2.11-1.0.4.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/scala-reflect-2.11.8.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/scala-xml_2.11-1.0.2.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/scalap-2.11.8.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/spark-core_2.11-2.1.0.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/spark-catalyst_2.11-2.1.0.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/spark-graphx_2.11-2.1.0.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/spark-network-shuffle_2.11-2.1.0.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/spark-network-common_2.11-2.1.0.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/spark-repl_2.11-2.1.0.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/spark-sketch_2.11-2.1.0.jar!/" />
+      <root url="jar:///usr/soft/spark/jars/spark-yarn_2.11-2.1.0.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

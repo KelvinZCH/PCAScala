@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project name="module_testpca" default="compile.module.testpca">
+  <dirname property="module.testpca.basedir" file="${ant.file.module_testpca}"/>
+  
+  <property name="module.jdk.home.testpca" value="${project.jdk.home}"/>
+  <property name="module.jdk.bin.testpca" value="${project.jdk.bin}"/>
+  <property name="module.jdk.classpath.testpca" value="${project.jdk.classpath}"/>
+  
+  <property name="compiler.args.testpca" value="-encoding UTF-8 -source 8 -target 8 ${compiler.args}"/>
+  
+  <property name="testpca.output.dir" value="${module.testpca.basedir}/out/production/TestPCA"/>
+  <property name="testpca.testoutput.dir" value="${module.testpca.basedir}/out/test/TestPCA"/>
+  
+  <path id="testpca.module.bootclasspath">
+    <!-- Paths to be included in compilation bootclasspath -->
+  </path>
+  
+  <path id="testpca.module.production.classpath">
+    <path refid="${module.jdk.classpath.testpca}"/>
+    <path refid="library.scala-compiler-2.11.8.classpath"/>
+    <path refid="library.spark-mllib-local_2.11-2.1.0.classpath"/>
+    <path refid="library.jars.classpath"/>
+    <path refid="library.scala-sdk-2.10.3.classpath"/>
+    <path refid="library.hadoop-common-2.7.3.classpath"/>
+    <path refid="library.hadoop-yarn-api-2.7.3.classpath"/>
+  </path>
+  
+  <path id="testpca.runtime.production.module.classpath">
+    <pathelement location="${testpca.output.dir}"/>
+    <path refid="library.scala-compiler-2.11.8.classpath"/>
+    <path refid="library.spark-mllib-local_2.11-2.1.0.classpath"/>
+    <path refid="library.jars.classpath"/>
+    <path refid="library.scala-sdk-2.10.3.classpath"/>
+    <path refid="library.hadoop-common-2.7.3.classpath"/>
+    <path refid="library.hadoop-yarn-api-2.7.3.classpath"/>
+  </path>
+  
+  <path id="testpca.module.classpath">
+    <path refid="${module.jdk.classpath.testpca}"/>
+    <pathelement location="${testpca.output.dir}"/>
+    <path refid="library.scala-compiler-2.11.8.classpath"/>
+    <path refid="library.spark-mllib-local_2.11-2.1.0.classpath"/>
+    <path refid="library.jars.classpath"/>
+    <path refid="library.scala-sdk-2.10.3.classpath"/>
+    <path refid="library.hadoop-common-2.7.3.classpath"/>
+    <path refid="library.hadoop-yarn-api-2.7.3.classpath"/>
+  </path>
+  
+  <path id="testpca.runtime.module.classpath">
+    <pathelement location="${testpca.testoutput.dir}"/>
+    <pathelement location="${testpca.output.dir}"/>
+    <path refid="library.scala-compiler-2.11.8.classpath"/>
+    <path refid="library.spark-mllib-local_2.11-2.1.0.classpath"/>
+    <path refid="library.jars.classpath"/>
+    <path refid="library.scala-sdk-2.10.3.classpath"/>
+    <path refid="library.hadoop-common-2.7.3.classpath"/>
+    <path refid="library.hadoop-yarn-api-2.7.3.classpath"/>
+  </path>
+  
+  
+  <patternset id="excluded.from.module.testpca">
+    <patternset refid="ignored.files"/>
+  </patternset>
+  
+  <patternset id="excluded.from.compilation.testpca">
+    <patternset refid="excluded.from.module.testpca"/>
+  </patternset>
+  
+  <path id="testpca.module.sourcepath">
+    <dirset dir="${module.testpca.basedir}">
+      <include name="src"/>
+    </dirset>
+  </path>
+  
+  
+  <target name="compile.module.testpca" depends="compile.module.testpca.production,compile.module.testpca.tests" description="Compile module TestPCA"/>
+  
+  <target name="compile.module.testpca.production" depends="register.custom.compilers" description="Compile module TestPCA; production classes">
+    <mkdir dir="${testpca.output.dir}"/>
+    <javac2 destdir="${testpca.output.dir}" debug="${compiler.debug}" nowarn="${compiler.generate.no.warnings}" memorymaximumsize="${compiler.max.memory}" fork="true" executable="${module.jdk.bin.testpca}/javac">
+      <compilerarg line="${compiler.args.testpca}"/>
+      <bootclasspath refid="testpca.module.bootclasspath"/>
+      <classpath refid="testpca.module.production.classpath"/>
+      <src refid="testpca.module.sourcepath"/>
+      <patternset refid="excluded.from.compilation.testpca"/>
+    </javac2>
+    
+    <copy todir="${testpca.output.dir}">
+      <fileset dir="${module.testpca.basedir}/src">
+        <patternset refid="compiler.resources"/>
+        <type type="file"/>
+      </fileset>
+    </copy>
+  </target>
+  
+  <target name="compile.module.testpca.tests" depends="register.custom.compilers,compile.module.testpca.production" description="compile module TestPCA; test classes" unless="skip.tests"/>
+  
+  <target name="clean.module.testpca" description="cleanup module">
+    <delete dir="${testpca.output.dir}"/>
+    <delete dir="${testpca.testoutput.dir}"/>
+  </target>
+</project>
